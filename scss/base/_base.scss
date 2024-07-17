@@ -1,9 +1,13 @@
+@use "../abstracts";
+
 *,
 ::before,
 ::after {
     box-sizing: border-box;
 }
-
+* {
+    -webkit-tap-highlight-color: transparent;
+}
 html {
     font-size: 62.5%;
 }
@@ -11,4 +15,67 @@ html {
 body {
     font-size: 1.6rem;
     font-family: Gordita, sans-serif;
+    color: var(--text-color);
+    font-weight: 400;
+    background: var(--body-bg-color);
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button {
+    border: none;
+    outline: none;
+    background: transparent;
+    padding: 0;
+    cursor: pointer;
+}
+a,
+img,
+button,
+label,
+input,
+textarea,
+select {
+    font-family: inherit;
+    color: inherit;
+    outline: none;
+    border: none;
+    padding: 0;
+}
+
+input, textarea {
+    background: transparent;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active,
+input:-webkit-autofill:hover,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:focus,
+textarea:-webkit-autofill:active,
+textarea:-webkit-autofill:hover {
+    transition: background-color 1s 9999s;
+    -webkit-text-color-fill-color: var(--text-color);
+    caret-color: var(--text-color);
+}
+
+.icon {
+    filter: var(--icon-color);
+}
+
+.container {
+    @include abstracts.screen(sm) {
+        padding-left: 20px !important;
+        padding-right: 20px !important;
+    }
+}
+
+.separate {
+    margin: var(--margin) 0;
+    height: 1px;
+    background: var(--separate-color);
 }
